@@ -1,15 +1,16 @@
 package com.example.farmstorelocator;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class MainActivity extends AppCompatActivity{
+
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        int test = 34;
+
+
     }
+
 }

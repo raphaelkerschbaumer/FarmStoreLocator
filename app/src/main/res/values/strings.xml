@@ -3,4 +3,5 @@
     <string name="test">Lorem Ipsum</string>
     <string name="settings_page">Settings Page</string>
     <string name="tb_menu">Toolbar Menu</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
