@@ -12,34 +12,30 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
-public class LoadCredit_Activity extends AppCompatActivity {
+public class SelectedShopActivity extends AppCompatActivity {
     private Toolbar buyerToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.load_credit);
+        setContentView(R.layout.selectedshop);
 
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
         //set list View
-        final ListView myList = (ListView) findViewById(R.id.listView_credit);
+        final ListView myList = (ListView) findViewById(R.id.ListOfShopItems);
         //final Button btn = (Button) findViewById(R.id.item1);
 
         //list items
         String[] items = new String[]{
-                "Entry 1",
-                "Entry 2",
-                "Entry 3",
-                "Entry 4",
-                "Entry 5",
-                "Entry 6",
-                "Entry 7",
-                "Entry 8",
-                "Entry 9",
-                "Entry 10",
+                "Kartoffeln",
+                "Erbsen",
+                "Karotten",
+                "Milch",
+                "Eier",
+                "Brot",
+                "Salat"
         };
 
         //create a list from the string elements
