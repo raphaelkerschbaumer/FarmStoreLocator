@@ -27,4 +27,5 @@
     <string name="payment">Proceed with Payment</string>
     <string name="sum">Sum:</string>
     <string name="dummysum">30,20€</string>
+    <string name="map_key" translatable="false">AIzaSyDQuSSVTuoazqAQB38pE76UQ-UaLB0749c</string>
 </resources>

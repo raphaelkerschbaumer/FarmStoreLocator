@@ -11,17 +11,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
-
     private GoogleMap mMap;
-    /*private Location mLocationRequest;
-    public double latitude;
-    public double longitude;
 
-    Location mCurrentLocation;
-    private long UPDATE_INTERVAL = 60000;  /* 60 secs */
-    /*private long FASTEST_INTERVAL = 2000; /* 5 secs */
-    //Marker mCurrLocationMarker;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +25,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
+
     }
 
     /**
@@ -42,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      * installed Google Play services and returned to the app.
      */
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -51,12 +50,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
-/*
-    void cameraZoom(Location location){
-        double currentLatitude = location.getLatitude();
-        double currentLongitude = location.getLongitude();
-        float zoomLevel = 16.0f;
-        LatLng latLng = new LatLng(currentLatitude, currentLongitude);
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, zoomLevel));
-    }*/
+
+
 }

@@ -12,9 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar buyerToolbar;
-    //private LocationRequest mLocationRequest;
-    public double latitude;
-    public double longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

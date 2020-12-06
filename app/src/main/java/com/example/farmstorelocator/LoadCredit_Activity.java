@@ -1,6 +1,7 @@
 package com.example.farmstorelocator;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -30,16 +31,8 @@ public class LoadCredit_Activity extends AppCompatActivity {
 
         //list items
         String[] items = new String[]{
-                "Entry 1",
-                "Entry 2",
-                "Entry 3",
-                "Entry 4",
-                "Entry 5",
-                "Entry 6",
-                "Entry 7",
-                "Entry 8",
-                "Entry 9",
-                "Entry 10",
+                "Visa",
+                "MasterCard",
         };
 
         //create a list from the string elements
@@ -62,5 +55,10 @@ public class LoadCredit_Activity extends AppCompatActivity {
         //  });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 }
