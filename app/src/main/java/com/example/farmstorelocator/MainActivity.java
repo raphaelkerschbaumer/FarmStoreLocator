@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.qrscan);
+        setContentView(R.layout.account_buyer);
 
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
         //set list View
-        final ListView myList = (ListView) findViewById(R.id.listScannedProducts);
+        final ListView myList = (ListView) findViewById(R.id.listRecentBuys);
         //final Button btn = (Button) findViewById(R.id.item1);
 
         //list items

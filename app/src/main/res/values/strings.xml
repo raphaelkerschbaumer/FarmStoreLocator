@@ -25,4 +25,6 @@
     <string name="scan">Scan Products</string>
     <string name="scanprod">Scan Product</string>
     <string name="payment">Proceed with Payment</string>
+    <string name="sum">Sum:</string>
+    <string name="dummysum">30,20€</string>
 </resources>
