@@ -14,4 +14,15 @@
     <string name="email_hint">john.doe@gmail.com</string>
     <string name="pw_reenter_hint">re-enter Password</string>
     <string name="pw">********</string>
+    <string name="shopnamedummy">Shop Name</string>
+    <string name="openhours">Opening Hours</string>
+    <string name="openhoursdata">07:00 - 12:00</string>
+    <string name="addr">Address</string>
+    <string name="addrzipcode">8250 Vorau</string>
+    <string name="addrstreet">Dr. Mühlbauerweg 420</string>
+    <string name="products">Products</string>
+    <string name="already_scanned_products">Already Scanned Products</string>
+    <string name="scan">Scan Products</string>
+    <string name="scanprod">Scan Product</string>
+    <string name="payment">Proceed with Payment</string>
 </resources>

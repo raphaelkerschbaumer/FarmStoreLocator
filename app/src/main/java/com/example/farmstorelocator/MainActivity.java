@@ -1,4 +1,7 @@
 package com.example.farmstorelocator;
+/* Code Snippets/Helpers/etc.
+    QR-Scanner: https://www.journaldev.com/18198/qr-code-barcode-scanner-android
+ */
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
