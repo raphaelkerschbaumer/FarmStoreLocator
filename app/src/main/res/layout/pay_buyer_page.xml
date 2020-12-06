@@ -32,10 +32,10 @@
 
     <EditText
         android:id="@+id/editTextNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="123dp"
+        android:layout_height="43dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="72dp"
         android:ems="10"
         android:gravity="right"
         android:hint="0,00"
@@ -47,11 +47,11 @@
         android:id="@+id/textView22"
         android:layout_width="18dp"
         android:layout_height="32dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="76dp"
         android:text="€"
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toEndOf="@+id/editTextNumber"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -71,27 +71,65 @@
         android:id="@+id/button6"
         android:layout_width="144dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="84dp"
+
+
         android:text="Pay Now"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/button6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.569"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_euro"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/listView_payment"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="272dp"
         android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView23" >
+        app:layout_constraintTop_toBottomOf="@+id/textView23"
+        app:layout_constraintVertical_bias="0.011">
+
 
     </ListView>
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginBottom="16dp"
+        android:text="Summe:"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/button6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/listView_payment"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <EditText
+        android:id="@+id/editTextNumber2"
+        android:layout_width="87dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="36dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toBottomOf="@+id/listView_payment" />
+
+    <TextView
+        android:id="@+id/textView_euro"
+        android:layout_width="18dp"
+        android:layout_height="32dp"
+        android:text="€"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumber2"
+        app:layout_constraintTop_toBottomOf="@+id/listView_payment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

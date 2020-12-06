@@ -1,33 +1,31 @@
 package com.example.farmstorelocator;
-/* Code Snippets/Helpers/etc.
-    QR-Scanner: https://www.journaldev.com/18198/qr-code-barcode-scanner-android
- */
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
+
+
+public class LoadCredit_Activity extends AppCompatActivity {
     private Toolbar buyerToolbar;
-    //private LocationRequest mLocationRequest;
-    public double latitude;
-    public double longitude;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getBaseContext(), MapsActivity.class);
-        startActivity(intent);
-    }
-    /*    setContentView(R.layout.filter_map);
+        setContentView(R.layout.load_credit);
 
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
         //set list View
-        final ListView myList = (ListView) findViewById(R.id.list_products);
+        final ListView myList = (ListView) findViewById(R.id.listView_credit);
         //final Button btn = (Button) findViewById(R.id.item1);
 
         //list items
@@ -53,24 +51,16 @@ public class MainActivity extends AppCompatActivity {
         // DataBind ListView with items from ArrayAdapter
         myList.setAdapter(arrayAdapter);
 
-    //  btn.setOnClickListener(new View.OnClickListener() {
-    //      @Override
-    //      public void onClick(View v) {
-    //          // Add new Items to List
-    //          itemsList.add("Entry 11");
-    //          itemsList.add("Entry 12");
-    //          arrayAdapter.notifyDataSetChanged();
-    //      }
-    //  });
+        //  btn.setOnClickListener(new View.OnClickListener() {
+        //      @Override
+        //      public void onClick(View v) {
+        //          // Add new Items to List
+        //          itemsList.add("Entry 11");
+        //          itemsList.add("Entry 12");
+        //          arrayAdapter.notifyDataSetChanged();
+        //      }
+        //  });
 
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return true;
-    }*/
-
-    }
-
+}
