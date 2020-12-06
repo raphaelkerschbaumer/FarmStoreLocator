@@ -4,4 +4,14 @@
     <string name="settings_page">Settings Page</string>
     <string name="tb_menu">Toolbar Menu</string>
     <string name="title_activity_maps">Map</string>
+    <string name="pw_change">Change Password</string>
+    <string name="email_change">Change eMail</string>
+    <string name="name_change">Change Name</string>
+    <string name="impressum">Impressum</string>
+    <string name="contact">Contact</string>
+    <string name="faq">FAQ</string>
+    <string name="name_hint">John Doe</string>
+    <string name="email_hint">john.doe@gmail.com</string>
+    <string name="pw_reenter_hint">re-enter Password</string>
+    <string name="pw">********</string>
 </resources>

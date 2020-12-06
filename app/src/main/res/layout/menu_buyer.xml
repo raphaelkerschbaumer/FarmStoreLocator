@@ -21,7 +21,7 @@
         app:titleTextColor="@color/white" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName3"
         android:layout_width="132dp"
         android:layout_height="43dp"
@@ -44,6 +44,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:text="change e-mail:"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
@@ -53,7 +54,7 @@
         android:layout_height="53dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:hint="john.doe@gmail.com"
+        android:hint="@string/email_hint"
         android:inputType="textEmailAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.117"
@@ -61,28 +62,30 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonChangeEmail"
         android:layout_width="168dp"
         android:layout_height="38dp"
         android:layout_marginTop="8dp"
-        android:text="change e-mail"
+        android:text="@string/email_change"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName4"
         android:layout_width="159dp"
         android:layout_height="48dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="100dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="change password"
+        android:text="change password:"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/editTextTextPassword"
         app:layout_constraintHorizontal_bias="0.521"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -95,26 +98,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.92"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonChangeEmail" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="168dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="16dp"
-        android:text="change password"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.934"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
-    <EditText
+    <TextView
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="146dp"
         android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
         android:ems="10"
+        android:textColor="@color/black"
         android:inputType="textPersonName"
         android:text="change name:"
         app:layout_constraintStart_toStartOf="parent"
@@ -126,7 +120,7 @@
         android:layout_height="51dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="re-enter password"
+        android:hint="@string/pw_reenter_hint"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -134,49 +128,59 @@
         app:layout_constraintVertical_bias="0.068" />
 
     <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="28dp"
-        android:text="Contact"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button7" />
+        android:id="@+id/buttonChangePassword"
+        android:layout_width="168dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/pw_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonChangeName"
+        android:layout_width="159dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/name_change"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.936"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputTextNameChange" />
+    <Button
+        android:id="@+id/buttonContact"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="28dp"
-        android:text="Impressum"
+        android:text="@string/contact"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonImpressum" />
+
+    <Button
+        android:id="@+id/buttonImpressum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginBottom="28dp"
+        android:text="@string/impressum"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/textInputEditText"
-        android:layout_width="201dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="4dp"
-        android:hint="hint"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName5"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/buttonFAQ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="40dp"
         android:layout_marginBottom="28dp"
         android:backgroundTint="@color/white"
-        android:text="FAQ"
+        android:text="@string/faq"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/button6" />
+        app:layout_constraintStart_toEndOf="@+id/buttonContact" />
 
     <View
         android:id="@+id/divider4"
@@ -189,14 +193,20 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="159dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="32dp"
-        android:text="change name"
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/inputTextNameChange"
+        android:layout_width="201dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:hint="@string/name_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName5"
+        app:layout_constraintTop_toBottomOf="@+id/buttonChangePassword" />
+
+
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
