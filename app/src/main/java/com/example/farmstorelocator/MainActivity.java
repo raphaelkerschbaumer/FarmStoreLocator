@@ -1,6 +1,7 @@
 package com.example.farmstorelocator;
 /* Code Snippets/Helpers/etc.
     QR-Scanner: https://www.journaldev.com/18198/qr-code-barcode-scanner-android
+                https://ourcodeworld.com/articles/read/907/how-to-create-a-qr-code-reader-in-android-using-the-qreader-library
  */
 
 import android.os.Bundle;
@@ -22,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.shoplist);
+        setContentView(R.layout.qrscan);
 
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
         //set list View
-        final ListView myList = (ListView) findViewById(R.id.listOfShops);
+        final ListView myList = (ListView) findViewById(R.id.listScannedProducts);
         //final Button btn = (Button) findViewById(R.id.item1);
 
         //list items

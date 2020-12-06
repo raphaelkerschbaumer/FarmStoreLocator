@@ -28,7 +28,7 @@
         app:layout_constraintTop_toBottomOf="@+id/toolbar"
         >
 
-        <TextView
+       <!--><TextView
             android:id="@+id/scan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -43,62 +43,71 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/toolbar"
-            />
+            /> -->
 
         <Button
-            android:id="@+id/btn_start_stop"
+            android:id="@+id/btn_scan_product"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Start Scan"
+            android:text="@string/scanprod"
             />
 
 
         <SurfaceView
             android:id="@+id/camera_view"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="250dp"
             android:layout_marginTop="20dp"
             />
 
+
+        <!--   <View
+               android:id="@+id/divider"
+               android:layout_width="406dp"
+               android:layout_height="0dp"
+               android:layout_marginTop="250dp"
+               android:background="?android:attr/listDivider"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/info"
+               app:layout_constraintVertical_bias="1.0" /> -->
+
+        <TextView
+            android:id="@+id/products_qr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/already_scanned_products"
+            android:textSize="32sp"
+            app:layout_constraintTop_toBottomOf="@+id/info" />
+
     </LinearLayout>
-
-
- <!--   <View
-        android:id="@+id/divider"
-        android:layout_width="406dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="250dp"
+    <View
+        android:id="@+id/divider1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/info"
-        app:layout_constraintVertical_bias="1.0" /> -->
-
-    <TextView
-        android:id="@+id/products_qr"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/already_scanned_products"
-        android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/info" />
+        tools:layout_editor_absoluteX="-16dp" />
 
     <ListView
         android:id="@+id/listScannedProducts"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/proceed_with_payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/products_qr">
-    </ListView>
+        app:layout_constraintTop_toBottomOf="@+id/info" />
 
-
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/listScannedProducts"
+        tools:layout_editor_absoluteX="-16dp" />
      <Button
          android:id="@+id/proceed_with_payment"
          android:layout_width="wrap_content"
@@ -109,7 +118,6 @@
          app:layout_constraintBottom_toBottomOf="parent"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintHorizontal_bias="0.516"
-         app:layout_constraintStart_toStartOf="parent"
-         app:layout_constraintTop_toTopOf="@+id/divider" />
+         app:layout_constraintStart_toStartOf="parent" />
 
  </androidx.constraintlayout.widget.ConstraintLayout>
