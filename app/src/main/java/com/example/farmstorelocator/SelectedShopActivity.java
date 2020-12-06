@@ -1,7 +1,6 @@
 package com.example.farmstorelocator;
 
 import android.os.Bundle;
-import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -13,26 +12,30 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
-public class LoadCredit_Activity extends AppCompatActivity {
+public class SelectedShopActivity extends AppCompatActivity {
     private Toolbar buyerToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.load_credit);
+        setContentView(R.layout.selectedshop);
 
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
         //set list View
-        final ListView myList = (ListView) findViewById(R.id.listView_credit);
+        final ListView myList = (ListView) findViewById(R.id.ListOfShopItems);
         //final Button btn = (Button) findViewById(R.id.item1);
 
         //list items
         String[] items = new String[]{
-                "Visa",
-                "MasterCard",
+                "Kartoffeln",
+                "Erbsen",
+                "Karotten",
+                "Milch",
+                "Eier",
+                "Brot",
+                "Salat"
         };
 
         //create a list from the string elements
@@ -55,10 +58,5 @@ public class LoadCredit_Activity extends AppCompatActivity {
         //  });
 
 
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
-        return true;
     }
 }
