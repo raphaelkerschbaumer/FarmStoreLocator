@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/selectedshop"
+    android:id="@+id/radioselectedshop"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -112,10 +112,11 @@
         tools:layout_editor_absoluteX="-16dp" />
 
 
-    <ListView
-        android:id="@+id/ListOfShopItems"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RadioListOfShopItems"
         android:layout_width="match_parent"
-        android:layout_height="418dp"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="252dp"
         app:layout_constraintBottom_toTopOf="@+id/button_scan_products"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
