@@ -81,6 +81,16 @@
             android:value=".MainActivity" />
         </activity>
 
+        <activity android:name="AccountBuyerActivity"
+            android:parentActivityName=".MainActivity"><meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" /> </activity>
+
+        <activity android:name=".FilterMapActivity"
+            android:parentActivityName=".MainActivity"><meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" /> </activity>
+
         <activity android:name=".SignUpActivity"
             android:parentActivityName=".MainActivity"> <meta-data
             android:name="android.support.PARENT_ACTIVITY"

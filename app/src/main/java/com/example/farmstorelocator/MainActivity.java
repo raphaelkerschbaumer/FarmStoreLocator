@@ -16,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Intent intent = new Intent(getBaseContext(), QRScanActivity.class);
+        Intent intent = new Intent(getBaseContext(), FilterMapActivity.class);
         startActivity(intent);
     }
     /*    setContentView(R.layout.filter_map);
