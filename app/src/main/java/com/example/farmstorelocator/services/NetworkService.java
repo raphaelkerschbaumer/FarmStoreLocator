@@ -1,7 +1,8 @@
 package com.example.farmstorelocator.services;
 
 
-import com.example.farmstorelocator.interfaces.RadioStationCountryService;
+import com.example.farmstorelocator.interfaces.FarmStoreInfoService;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -11,7 +12,7 @@ public class NetworkService {
 
     private NetworkService() {
         retrofit = new Retrofit.Builder()
-                .baseUrl("https://de1.api.radio-browser.info/json/")
+                .baseUrl("http://10.0.2.2:5000/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -22,7 +23,7 @@ public class NetworkService {
         return mInstance;
     }
 
-    public RadioStationCountryService getRadioStationCountryService() {
-        return retrofit.create(RadioStationCountryService.class);
+    public FarmStoreInfoService getFarmStoreInfoService(){
+        return retrofit.create(FarmStoreInfoService.class);
     }
 }

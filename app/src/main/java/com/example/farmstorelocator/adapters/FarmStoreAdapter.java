@@ -9,14 +9,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmstorelocator.R;
-import com.example.farmstorelocator.models.WebRadioCountry;
+import com.example.farmstorelocator.models.FarmStoreInfo;
+
 import java.util.List;
 
-public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.ViewHolder> {
+public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.ViewHolder> {
 
-    private List<WebRadioCountry> data;
+    private List<FarmStoreInfo> data;
 
-    public RadioAdapter(List<WebRadioCountry> data) {
+    public FarmStoreAdapter(List<FarmStoreInfo> data) {
         this.data = data;
     }
 
@@ -24,12 +25,12 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.radio_country_item, parent, false);
+                .inflate(R.layout.farm_store, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RadioAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull FarmStoreAdapter.ViewHolder holder, int position) {
 
     }
 
@@ -38,24 +39,21 @@ public class RadioAdapter extends RecyclerView.Adapter<RadioAdapter.ViewHolder> 
         return 0;
     }
 
-    public void updateData(List<WebRadioCountry> data) {
+    public void updateData(List<FarmStoreInfo> data) {
         this.data = data;
         notifyDataSetChanged();
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView textCountry;
-        private TextView textAmountOfStations;
+        private TextView textFarmStoreName;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            textCountry = itemView.findViewById(R.id.textCountry);
-            textAmountOfStations = itemView.findViewById(R.id.textAmountOfStations);
+            textFarmStoreName = itemView.findViewById(R.id.textFarmStoreName);
         }
 
-        public void updateWebRadio(WebRadioCountry data) {
-            textCountry.setText(data.getName().toString());
-            textAmountOfStations.setText(data.getStationcount().toString());
+        public void updateFarmStores(FarmStoreInfo data) {
+            textFarmStoreName.setText(data.getName().toString());
         }
     }
 }

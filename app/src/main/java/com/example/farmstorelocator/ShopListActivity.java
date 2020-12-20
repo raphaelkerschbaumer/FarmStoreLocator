@@ -1,11 +1,19 @@
 package com.example.farmstorelocator;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.farmstorelocator.adapters.FarmStoreAdapter;
+import com.example.farmstorelocator.viewmodels.FarmStoreViewModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,7 +22,11 @@ import java.util.List;
 
 public class ShopListActivity extends AppCompatActivity {
     private Toolbar buyerToolbar;
+    private FarmStoreViewModel viewModel;
+    private RecyclerView recyclerView;
+    private FarmStoreAdapter adapter;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,37 +35,19 @@ public class ShopListActivity extends AppCompatActivity {
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
-        //set list View
-        final ListView myList = (ListView) findViewById(R.id.listOfShops);
-        //final Button btn = (Button) findViewById(R.id.item1);
+        recyclerView = findViewById(R.id.listOfShops);
 
-        //list items
-        String[] items = new String[]{
-                "Holzer Most",
-                "Kuchlbauer",
-                "Kräuter Sigi",
-                "Frisch vom Hof - Grainer"
-        };
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new FarmStoreAdapter(null);
+        recyclerView.setAdapter(adapter);
 
-        //create a list from the string elements
-        final List<String> itemsList = new ArrayList<String>(Arrays.asList(items));
+        viewModel = new ViewModelProvider(this).get(FarmStoreViewModel.class);
 
-        //create an Array Adapter from list
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_selectable_list_item, itemsList);
+        viewModel.getFarmStoreInfo().observe(this,
+                farmStoreInfos -> {
+                    adapter.updateData(farmStoreInfos);
+                });
 
-        // DataBind ListView with items from ArrayAdapter
-        myList.setAdapter(arrayAdapter);
-
-        //  btn.setOnClickListener(new View.OnClickListener() {
-        //      @Override
-        //      public void onClick(View v) {
-        //          // Add new Items to List
-        //          itemsList.add("Entry 11");
-        //          itemsList.add("Entry 12");
-        //          arrayAdapter.notifyDataSetChanged();
-        //      }
-        //  });
-
-
+        viewModel.queryFarmStores();
     }
 }
