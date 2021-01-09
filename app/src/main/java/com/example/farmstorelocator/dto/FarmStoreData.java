@@ -4,6 +4,7 @@ import com.example.farmstorelocator.models.OpeningHours;
 import com.example.farmstorelocator.models.Products;
 
 public class FarmStoreData {
+    private Integer id;
     private String name;
     private Integer zip;
     private String town;
@@ -33,5 +34,9 @@ public class FarmStoreData {
 
     public Products[] getProducts() {
         return products;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }

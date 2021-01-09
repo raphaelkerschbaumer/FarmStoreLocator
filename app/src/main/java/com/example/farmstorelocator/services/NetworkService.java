@@ -26,4 +26,5 @@ public class NetworkService {
     public FarmStoreInfoService getFarmStoreInfoService(){
         return retrofit.create(FarmStoreInfoService.class);
     }
+
 }
