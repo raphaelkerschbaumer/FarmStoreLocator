@@ -30,6 +30,24 @@ companies = {"farmStoreData":[{"id": 1, "name": "Farm Store 1", "zip": "1234",
     "products":[ 
         {"type":"apple wine","costPerUnit":"3.99","unit":"l"},
         {"type":"carrots","costPerUnit":"2.50","unit":"kg"}
+    ]},
+       {"id": 2, "name": "Kuchelbauer", "zip": "8250", 
+    "town":"Vorau","street":"Vorau 67",
+    "openingHours":[
+        {"day":"Mo","hours":"07:00-22:00"},  
+        {"day":"Tu","hours":"07:00-22:00"},
+        {"day":"We","hours":"07:00-22:00"},
+        {"day":"Th","hours":"07:00-22:00"},
+        {"day":"Fr","hours":"07:00-22:00"},
+        {"day":"Sa","hours":"07:00-22:00"},
+        {"day":"Su","hours":"07:00-20:00"},
+    ],
+    "products":[ 
+        {"type":"apple wine","costPerUnit":"3.99","unit":"l"},
+        {"type":"Pumpkinseeds","costPerUnit":"2.50","unit":"package"},
+        {"type":"Apple juice","costPerUnit":"1.99","unit":"l"},
+        {"type":"Schnaps Marille","costPerUnit":"15.00","unit":"bottle"},
+        {"type":"Schnaps Obstler","costPerUnit":"12.00","unit":"bottle"}
     ]}
 ]}
 

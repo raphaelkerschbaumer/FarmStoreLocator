@@ -21,16 +21,6 @@ public class FarmStoreViewModel extends ViewModel {
         return Transformations.map(repository.getFarmStoreInfoList(),
                 farmStoreInfoList -> farmStoreInfoList);
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public LiveData<FarmStoreInfo> getFarmStoreInfo() {
-        return Transformations.map(repository.getFarmStoreInfo(),
-                farmStoreInfo -> farmStoreInfo);
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public void queryFarmStores() {
-        repository.findFarmStores();
-    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void queryFarmStoreList(int distance) {

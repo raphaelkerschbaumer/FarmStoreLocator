@@ -19,54 +19,13 @@ import retrofit2.Response;
 
 public class FarmStoreInfoRepository {
     private NetworkService service = NetworkService.getInstance();
-    private MutableLiveData<FarmStoreInfo> farmStore;
     private MutableLiveData<List<FarmStoreInfo>> farmStoreList;
-
-    String myBaseUrl = "http://10.0.2.2:5000/onecompany";
     String myListUrl = "http://10.0.2.2:5000/multiplecompanies";
-
-    //public LiveData<List<FarmStoreInfo>> getFarmStoreInfo() {
-    //    if (farmStoreInfo == null)
-    //        farmStoreInfo = new MutableLiveData<>();
-    //    return farmStoreInfo;
-    //}
-    public LiveData<FarmStoreInfo> getFarmStoreInfo() {
-        if (farmStore == null)
-            farmStore = new MutableLiveData<>();
-        return farmStore;
-    }
 
     public LiveData<List<FarmStoreInfo>> getFarmStoreInfoList() {
         if (farmStoreList == null)
             farmStoreList = new MutableLiveData<>();
         return farmStoreList;
-    }
-
-    public void findFarmStores(){
-        service.getFarmStoreInfoService().getFarmStores(myBaseUrl)
-                .enqueue(new Callback<FarmStoreData>() {
-                    @Override
-                    public void onResponse(Call<FarmStoreData> call, Response<FarmStoreData> response) {
-                        if (response.body() == null){
-                            farmStore.postValue(new FarmStoreInfo(String.format("Error getting Data in onResponse")));
-                        }
-                        else{
-                            FarmStoreData serverData = response.body();
-                            farmStore.postValue(new FarmStoreInfo(serverData.getId(),
-                                    serverData.getName(),
-                                    serverData.getZip(),
-                                    serverData.getTown(),
-                                    serverData.getStreet(),
-                                    serverData.getOpeningHours(),
-                                    serverData.getProducts()));
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<FarmStoreData> call, Throwable t) {
-                        farmStore.postValue(new FarmStoreInfo(String.format("Error onFailure Method Called")));
-                    }
-                });
     }
 
     public void findFarmStoreList(int distance){
@@ -90,12 +49,11 @@ public class FarmStoreInfoRepository {
                                     }
                                 }
                         ).collect(Collectors.toList());
+                        farmStoreList.postValue(result);
                     }
 
                     @Override
-                    public void onFailure(Call<ListFarmStoresData> call, Throwable t) {
-                        farmStore.postValue(new FarmStoreInfo(String.format("Error onFailure Method Called for farm store list")));
-                    }
+                    public void onFailure(Call<ListFarmStoresData> call, Throwable t) {}
                 });
     }
 
