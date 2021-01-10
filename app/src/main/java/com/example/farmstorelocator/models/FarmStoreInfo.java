@@ -1,6 +1,7 @@
 package com.example.farmstorelocator.models;
 
 public class FarmStoreInfo {
+    private Integer id;
     private String name;
     private Integer zip;
     private String town;
@@ -9,9 +10,10 @@ public class FarmStoreInfo {
     private Products[] products;
     private String error;
 
-    public FarmStoreInfo(String name, Integer zip,
+    public FarmStoreInfo(Integer id, String name, Integer zip,
                          String town, String street,
                          OpeningHours[] openingHours, Products[] products) {
+        this.id = id;
         this.name = name;
         this.zip = zip;
         this.town = town;
@@ -77,5 +79,13 @@ public class FarmStoreInfo {
 
     public void setProducts(Products[] products) {
         this.products = products;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

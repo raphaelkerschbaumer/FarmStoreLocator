@@ -16,6 +16,7 @@ import java.util.List;
 public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.ViewHolder> {
 
     private List<FarmStoreInfo> data;
+   private FarmStoreInfo onlyOneFarmStoreData;
 
     public FarmStoreAdapter(List<FarmStoreInfo> data) {
         this.data = data;
@@ -39,8 +40,12 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
         return 0;
     }
 
-    public void updateData(List<FarmStoreInfo> data) {
+    public void updateDataList(List<FarmStoreInfo> data) {
         this.data = data;
+        notifyDataSetChanged();
+    }
+    public void updateData(FarmStoreInfo data) {
+        this.onlyOneFarmStoreData = data;
         notifyDataSetChanged();
     }
     public static class ViewHolder extends RecyclerView.ViewHolder {
