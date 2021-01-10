@@ -57,6 +57,11 @@
             android:name="android.support.PARENT_ACTIVITY"
             android:value=".MainActivity" />
         </activity>
+        <activity android:name=".FilterShopActivity"
+            android:parentActivityName=".MainActivity"> <meta-data
+            android:name="android.support.PARENT_ACTIVITY"
+            android:value=".MainActivity" />
+        </activity>
 
         <activity android:name=".LoginPageActivity"
             android:parentActivityName=".MainActivity"> <meta-data
@@ -70,11 +75,7 @@
             android:value=".MainActivity" />
         </activity>
 
-        <activity android:name=".SelectedShopActivity"
-            android:parentActivityName=".MainActivity"> <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".MainActivity" />
-        </activity>
+        <activity android:name=".SelectedShopActivity"></activity>
 
         <activity android:name=".ShopListActivity"
             android:parentActivityName=".MainActivity"> <meta-data

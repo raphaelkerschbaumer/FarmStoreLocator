@@ -1,15 +1,22 @@
 package com.example.farmstorelocator.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Filter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmstorelocator.R;
+import com.example.farmstorelocator.SelectedShopActivity;
+import com.example.farmstorelocator.WelcomePageActivity;
 import com.example.farmstorelocator.models.FarmStoreInfo;
 
 import java.util.List;
@@ -17,10 +24,12 @@ import java.util.List;
 public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.ViewHolder>{
 
     private List<FarmStoreInfo> data;
-    private ClickListener clickListener;
+    private Context context;
+   // private ClickListener clickListener;
 
-    public FarmStoreAdapter(List<FarmStoreInfo> data) {
+    public FarmStoreAdapter(Context context, List<FarmStoreInfo> data) {
         this.data = data;
+        this.context = context;
     }
 
     @NonNull
@@ -34,6 +43,26 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.updateFarmStores(data.get(position));
+        Log.d("onBindViewHolder: ","updateFarmStores done for position: "
+                + position + " & "
+                + data.get(position).getName());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent;
+                intent =  new Intent(context, SelectedShopActivity.class);
+                intent.putExtra("FARM_STORE_OBJECT",data.get(position));
+                // intent.putExtra("FARM_STORE_NAME", data.get(position).getName());
+               // intent.putExtra("FARM_STORE_ID", data.get(position).getId());
+               // intent.putExtra("FARM_STORE_OPENING_HOURS", data.get(position).getOpeningHours());
+               // intent.putExtra("FARM_STORE_PRODUCTS", data.get(position).getProducts());
+               // intent.putExtra("FARM_STORE_STREET", data.get(position).getStreet());
+               // intent.putExtra("FARM_STORE_TOWN", data.get(position).getTown());
+               // intent.putExtra("FARM_STORE_ZIP", data.get(position).getZip());
+
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -46,30 +75,19 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
         notifyDataSetChanged();
     }
 
-    public void setOnItemClickListener(ClickListener clickListener) {
-        this.clickListener = clickListener;
-    }
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ViewHolder extends RecyclerView.ViewHolder  {
         private TextView textFarmStoreName;
+        private String helper1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemView.setOnClickListener(this);
             textFarmStoreName = itemView.findViewById(R.id.textFarmStoreName);
+            context = itemView.getContext();
         }
 
         public void updateFarmStores(FarmStoreInfo data) {
             textFarmStoreName.setText(data.getName()+ " "+data.getTown());
+            helper1 = data.getName();
         }
-
-        @Override
-        public void onClick(View v) {
-            Log.d("onClick:", "onClick performed" );
-        }
-    }
-
-    public interface ClickListener {
-        void onItemClick(int position, View v);
     }
 }

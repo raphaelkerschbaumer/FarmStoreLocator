@@ -1,6 +1,8 @@
 package com.example.farmstorelocator.models;
 
-public class OpeningHours {
+import java.io.Serializable;
+
+public class OpeningHours implements Serializable {
     private String day;
     private String hours;
 

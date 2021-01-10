@@ -1,6 +1,8 @@
 package com.example.farmstorelocator.models;
 
-public class Products {
+import java.io.Serializable;
+
+public class Products implements Serializable {
     private String type;
     private Double costPerUnit;
     private String unit;

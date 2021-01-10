@@ -2,6 +2,7 @@ package com.example.farmstorelocator;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -38,7 +39,7 @@ public class ShopListActivity extends AppCompatActivity  {
         recyclerView = findViewById(R.id.listOfShops);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new FarmStoreAdapter(null);
+        adapter = new FarmStoreAdapter(ShopListActivity.this,null);
 
         recyclerView.setAdapter(adapter);
 
@@ -50,10 +51,10 @@ public class ShopListActivity extends AppCompatActivity  {
          });
 
 
-
         buttonRefresh.setOnClickListener( view -> {
                 viewModel.queryFarmStoreList(DISTANCE_DUMMY);
             }
         );
     }
+
 }
