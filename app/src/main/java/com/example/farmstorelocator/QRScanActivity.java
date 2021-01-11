@@ -1,7 +1,11 @@
 package com.example.farmstorelocator;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +59,19 @@ public class QRScanActivity extends AppCompatActivity {
         //      }
         //  });
 
+        final Button proceedpayment = (Button) findViewById(R.id.proceed_with_payment);
 
+        proceedpayment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), BuyerPaymentActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 }

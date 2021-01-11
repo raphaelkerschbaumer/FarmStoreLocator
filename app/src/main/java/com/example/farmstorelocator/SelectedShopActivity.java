@@ -3,8 +3,10 @@ package com.example.farmstorelocator;
 import android.content.Intent;
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,7 +18,6 @@ import com.example.farmstorelocator.models.OpeningHours;
 import com.example.farmstorelocator.models.Products;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -81,6 +82,20 @@ public class SelectedShopActivity extends AppCompatActivity {
         // DataBind ListView with items from ArrayAdapter
         myList.setAdapter(arrayAdapter);
 
+        final Button scanproduct = (Button) findViewById(R.id.button_scan_products);
 
+        scanproduct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), QRScanActivity.class);
+                startActivity(intent);
+            }
+        });
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 }

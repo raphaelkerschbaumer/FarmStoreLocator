@@ -1,6 +1,7 @@
 package com.example.farmstorelocator;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -53,5 +54,10 @@ public class FilterShopActivity extends AppCompatActivity {
         //  });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
     }
 }

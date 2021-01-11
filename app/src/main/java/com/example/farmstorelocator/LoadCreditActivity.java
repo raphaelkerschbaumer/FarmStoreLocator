@@ -25,6 +25,7 @@ public class LoadCreditActivity extends AppCompatActivity {
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
+
         //set list View
         final ListView myList = (ListView) findViewById(R.id.listView_credit);
         //final Button btn = (Button) findViewById(R.id.item1);
