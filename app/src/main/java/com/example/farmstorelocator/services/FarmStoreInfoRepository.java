@@ -44,6 +44,8 @@ public class FarmStoreInfoRepository {
                                                 farmStoreData.getZip(),
                                                 farmStoreData.getTown(),
                                                 farmStoreData.getStreet(),
+                                                farmStoreData.getLatitude(),
+                                                farmStoreData.getLongitude(),
                                                 farmStoreData.getOpeningHours(),
                                                 farmStoreData.getProducts());
                                     }

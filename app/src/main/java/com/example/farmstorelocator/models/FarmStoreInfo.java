@@ -10,13 +10,13 @@ public class FarmStoreInfo implements Serializable {
     private String town;
     private String street;
     private List<OpeningHours> openingHours;
-    //private OpeningHours[] openingHours;
     private List<Products> products;
-    //private Products[] products;
     private String error;
+    private double latitude;
+    private double longitude;
 
     public FarmStoreInfo(Integer id, String name, Integer zip,
-                         String town, String street,
+                         String town, String street, double latitude, double longitude,
                          List<OpeningHours> openingHours, List<Products> products) {
         this.id = id;
         this.name = name;
@@ -25,6 +25,8 @@ public class FarmStoreInfo implements Serializable {
         this.street = street;
         this.openingHours = openingHours;
         this.products = products;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public FarmStoreInfo(String error) {
@@ -70,9 +72,7 @@ public class FarmStoreInfo implements Serializable {
         this.street = street;
     }
 
-    //public OpeningHours[] getOpeningHours() {
-    //    return openingHours;
-    //}
+
     public List<OpeningHours> getOpeningHours() {
         return openingHours;
     }
@@ -80,10 +80,6 @@ public class FarmStoreInfo implements Serializable {
     public void setOpeningHours(List<OpeningHours> openingHours) {
         this.openingHours = openingHours;
     }
-
-   //public void setOpeningHours(OpeningHours[] openingHours) {
-   //     this.openingHours = openingHours;
-   //}
 
     public List<Products> getProducts() {
         return products;
@@ -93,19 +89,27 @@ public class FarmStoreInfo implements Serializable {
         this.products = products;
     }
 
-   // public Products[] getProducts() {
-   //     return products;
-   // }
-//
-   // public void setProducts(Products[] products) {
-   //     this.products = products;
-   // }
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
     }
 }

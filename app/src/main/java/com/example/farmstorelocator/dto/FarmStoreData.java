@@ -12,9 +12,9 @@ public class FarmStoreData {
     private String town;
     private String street;
     private List<OpeningHours> openingHours;
-   // private OpeningHours[] openingHours;
     private List<Products> products;
-   // private Products[] products;
+    private double latitude;
+    private double longitude;
 
     public String getName() {
         return name;
@@ -42,5 +42,13 @@ public class FarmStoreData {
 
     public Integer getId() {
         return id;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
     }
 }

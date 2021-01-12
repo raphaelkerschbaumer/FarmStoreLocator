@@ -1,7 +1,7 @@
 from flask import Flask, json
 
 companies = {"farmStoreData":[{"id": 1, "name": "Farm Store 1", "zip": "1234", 
-    "town":"Graz","street":"Wiener Strasse 5",
+    "town":"Graz","street":"Wiener Strasse 5",  "latitude":3.3234, "longitude":4.1234,
     "openingHours":[
         {"day":"Mo","hours":"08:00-18:00"},  
         {"day":"Tu","hours":"08:00-18:00"},

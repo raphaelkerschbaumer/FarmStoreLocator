@@ -25,7 +25,6 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
 
     private List<FarmStoreInfo> data;
     private Context context;
-   // private ClickListener clickListener;
 
     public FarmStoreAdapter(Context context, List<FarmStoreInfo> data) {
         this.data = data;
@@ -52,13 +51,6 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
                 final Intent intent;
                 intent =  new Intent(context, SelectedShopActivity.class);
                 intent.putExtra("FARM_STORE_OBJECT",data.get(position));
-                // intent.putExtra("FARM_STORE_NAME", data.get(position).getName());
-               // intent.putExtra("FARM_STORE_ID", data.get(position).getId());
-               // intent.putExtra("FARM_STORE_OPENING_HOURS", data.get(position).getOpeningHours());
-               // intent.putExtra("FARM_STORE_PRODUCTS", data.get(position).getProducts());
-               // intent.putExtra("FARM_STORE_STREET", data.get(position).getStreet());
-               // intent.putExtra("FARM_STORE_TOWN", data.get(position).getTown());
-               // intent.putExtra("FARM_STORE_ZIP", data.get(position).getZip());
 
                 context.startActivity(intent);
             }
@@ -77,7 +69,6 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder  {
         private TextView textFarmStoreName;
-        private String helper1;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -87,7 +78,6 @@ public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.View
 
         public void updateFarmStores(FarmStoreInfo data) {
             textFarmStoreName.setText(data.getName()+ " "+data.getTown());
-            helper1 = data.getName();
         }
     }
 }

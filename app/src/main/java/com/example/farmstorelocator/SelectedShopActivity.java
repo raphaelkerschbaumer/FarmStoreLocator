@@ -63,11 +63,7 @@ public class SelectedShopActivity extends AppCompatActivity {
             if(day.getDay().equals(weekDay)){
                 textFarmStoreOpeningHours.setText(day.getDay() + " " + day.getHours());
             }
-
         }
-
-
-
 
         for(Products prod : data.getProducts()){
             items.add(prod.getType());
@@ -88,6 +84,15 @@ public class SelectedShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), QRScanActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        final Button showShopOnMap = (Button) findViewById(R.id.button_shoplist_show_on_map);
+        showShopOnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
                 startActivity(intent);
             }
         });
