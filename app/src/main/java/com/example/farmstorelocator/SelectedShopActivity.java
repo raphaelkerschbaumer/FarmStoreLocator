@@ -93,6 +93,9 @@ public class SelectedShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                intent.putExtra("LATITUDE", data.getLatitude());
+                intent.putExtra("LONGITUDE", data.getLongitude());
+                intent.putExtra("FSNAME", data.getName());
                 startActivity(intent);
             }
         });

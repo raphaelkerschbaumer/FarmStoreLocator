@@ -1,7 +1,7 @@
 from flask import Flask, json
 
 companies = {"farmStoreData":[{"id": 1, "name": "Farm Store 1", "zip": "1234", 
-    "town":"Graz","street":"Wiener Strasse 5",  "latitude":3.3234, "longitude":4.1234,
+    "town":"Graz","street":"Wiener Strasse 5", "latitude":3.3234, "longitude":4.1234,
     "openingHours":[
         {"day":"Mo","hours":"08:00-18:00"},  
         {"day":"Tu","hours":"08:00-18:00"},
@@ -17,7 +17,7 @@ companies = {"farmStoreData":[{"id": 1, "name": "Farm Store 1", "zip": "1234",
         {"type":"carrots","costPerUnit":"2.00","unit":"kg"}
     ]},
        {"id": 2, "name": "Farm Store 2", "zip": "6789", 
-    "town":"Noerning","street":"Noerning 4",
+    "town":"Noerning","street":"Noerning 4", "latitude":22.3234, "longitude":10.1234,
     "openingHours":[
         {"day":"Mo","hours":"00:00-24:00"},  
         {"day":"Tu","hours":"00:00-24:00"},
@@ -32,7 +32,7 @@ companies = {"farmStoreData":[{"id": 1, "name": "Farm Store 1", "zip": "1234",
         {"type":"carrots","costPerUnit":"2.50","unit":"kg"}
     ]},
        {"id": 2, "name": "Kuchelbauer", "zip": "8250", 
-    "town":"Vorau","street":"Vorau 67",
+    "town":"Vorau","street":"Riegersbach Weg 33", "latitude":47.425520, "longitude":15.883470,
     "openingHours":[
         {"day":"Mo","hours":"07:00-22:00"},  
         {"day":"Tu","hours":"07:00-22:00"},

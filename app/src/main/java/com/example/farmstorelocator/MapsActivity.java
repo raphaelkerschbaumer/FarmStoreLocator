@@ -21,6 +21,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import com.example.farmstorelocator.models.FarmStoreInfo;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -36,6 +37,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -49,8 +51,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
-    //private Toolbar buyerToolbar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,8 +138,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (mCurrLocationMarker != null) {
             mCurrLocationMarker.remove();
         }
+
 //Showing Current Location Marker on Map
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        //LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        Intent intent = getIntent();
+        double latitudeFromIntent = intent.getDoubleExtra("LATITUDE",location.getLatitude());
+        double longitudeFromIntent = intent.getDoubleExtra("LONGITUDE",location.getLongitude());
+        List<String> items = new ArrayList<>();
+        LatLng latLng = new LatLng(latitudeFromIntent, longitudeFromIntent);
         MarkerOptions markerOptions = new MarkerOptions();
         markerOptions.position(latLng);
         LocationManager locationManager = (LocationManager)
@@ -165,8 +171,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     String state = listAddresses.get(0).getAdminArea();
                     String country = listAddresses.get(0).getCountryName();
                     String subLocality = listAddresses.get(0).getSubLocality();
-                    markerOptions.title("" + latLng + "," + subLocality + "," + state
-                            + "," + country);
+                    markerOptions.title(intent.getStringExtra("FSNAME"));
+                    //markerOptions.title("" + latLng + "," + subLocality + "," + state + "," + country);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
