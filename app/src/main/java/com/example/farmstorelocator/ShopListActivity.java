@@ -1,5 +1,6 @@
 package com.example.farmstorelocator;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,7 +16,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.farmstorelocator.adapters.FarmStoreAdapter;
+import com.example.farmstorelocator.models.FarmStoreInfo;
 import com.example.farmstorelocator.viewmodels.FarmStoreViewModel;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ShopListActivity extends AppCompatActivity  {
     private final static int DISTANCE_DUMMY = 1000;
@@ -23,7 +29,8 @@ public class ShopListActivity extends AppCompatActivity  {
     private FarmStoreViewModel viewModel;
     private RecyclerView recyclerView;
     private FarmStoreAdapter adapter;
-    private Button buttonRefresh;
+    private Button buttonRefresh, buttonShowOnMap;
+    private List<FarmStoreInfo> fsiList;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -35,6 +42,7 @@ public class ShopListActivity extends AppCompatActivity  {
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
         buttonRefresh = findViewById(R.id.refreshShopListButton);
+        buttonShowOnMap = findViewById(R.id.showOnMapShopList);
 
         recyclerView = findViewById(R.id.listOfShops);
 
@@ -48,13 +56,38 @@ public class ShopListActivity extends AppCompatActivity  {
         viewModel.getFarmStoreInfoList().observe(this,
                 farmStoreInfoList -> {
             adapter.updateDataList(farmStoreInfoList);
-         });
+            fsiList = farmStoreInfoList;
+        });
 
 
         buttonRefresh.setOnClickListener( view -> {
-                viewModel.queryFarmStoreList(DISTANCE_DUMMY);
-            }
+                    viewModel.queryFarmStoreList(DISTANCE_DUMMY);
+                }
         );
+
+        buttonShowOnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = 0;
+                String label = "FARM_STORE_OBJECT_";
+                List<String> labelList = new ArrayList<>();
+                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+
+                if(fsiList != null){
+                    //for(FarmStoreInfo fsi : fsiList){
+                    //    labelList.add(label + i);
+                    //    intent.putExtra(labelList.get(i), (Serializable) fsiList);
+                    //    i++;
+                    //}
+                    intent.putExtra("FARM_STORE_OBJECTS", (Serializable) fsiList);
+                    intent.putExtra("PREVIOUS_ACTIVITY", "ShopListActivity");
+                    startActivity(intent);
+                }
+                else {
+                    Log.d("ShopList", "Farm Store List couldn't be initialized, farmStoreInfoList is null.");
+                }
+            }
+        });
     }
 
 }

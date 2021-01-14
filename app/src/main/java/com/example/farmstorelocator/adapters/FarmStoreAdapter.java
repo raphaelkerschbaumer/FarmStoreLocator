@@ -19,6 +19,7 @@ import com.example.farmstorelocator.SelectedShopActivity;
 import com.example.farmstorelocator.WelcomePageActivity;
 import com.example.farmstorelocator.models.FarmStoreInfo;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class FarmStoreAdapter extends RecyclerView.Adapter<FarmStoreAdapter.ViewHolder>{
