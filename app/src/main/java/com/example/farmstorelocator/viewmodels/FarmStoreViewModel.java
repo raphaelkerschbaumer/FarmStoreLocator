@@ -26,5 +26,4 @@ public class FarmStoreViewModel extends ViewModel {
     public void queryFarmStoreList(int distance) {
         repository.findFarmStoreList(distance);
     }
-
 }

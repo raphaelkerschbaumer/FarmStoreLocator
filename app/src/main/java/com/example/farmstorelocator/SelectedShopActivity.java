@@ -17,6 +17,7 @@ import com.example.farmstorelocator.models.FarmStoreInfo;
 import com.example.farmstorelocator.models.OpeningHours;
 import com.example.farmstorelocator.models.Products;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,9 +94,8 @@ public class SelectedShopActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getBaseContext(), MapsActivity.class);
-                intent.putExtra("LATITUDE", data.getLatitude());
-                intent.putExtra("LONGITUDE", data.getLongitude());
-                intent.putExtra("FSNAME", data.getName());
+                intent.putExtra("FARM_STORE_OBJECTS", (Serializable) data);
+                intent.putExtra("PREVIOUS_ACTIVITY", "SelectedShopActivity");
                 startActivity(intent);
             }
         });

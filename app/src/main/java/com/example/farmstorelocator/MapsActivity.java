@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.farmstorelocator.models.FarmStoreInfo;
+import com.example.farmstorelocator.models.Products;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -142,50 +143,66 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //Showing Current Location Marker on Map
         //LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         Intent intent = getIntent();
-        double latitudeFromIntent = intent.getDoubleExtra("LATITUDE",location.getLatitude());
-        double longitudeFromIntent = intent.getDoubleExtra("LONGITUDE",location.getLongitude());
-        List<String> items = new ArrayList<>();
-        LatLng latLng = new LatLng(latitudeFromIntent, longitudeFromIntent);
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(latLng);
-        LocationManager locationManager = (LocationManager)
-                getSystemService(Context.LOCATION_SERVICE);
-        String provider = locationManager.getBestProvider(new Criteria(), true);
-        if (ActivityCompat.checkSelfPermission(this,
-                Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-                        != PackageManager.PERMISSION_GRANTED) {
-            return;
+        List<FarmStoreInfo> farmStoreInfoList = new ArrayList<>();
+        List<Double> latitudeFromIntent = new ArrayList<>();
+        List<Double> longitudeFromIntent = new ArrayList<>();
+
+        if(intent.getStringExtra("PREVIOUS_ACTIVITY").equals("SelectedShopActivity")){
+            farmStoreInfoList.add((FarmStoreInfo)intent.getSerializableExtra("FARM_STORE_OBJECTS"));
+         }
+        else if(intent.getStringExtra("PREVIOUS_ACTIVITY").equals("ShopListActivity")){
+            farmStoreInfoList = ((List<FarmStoreInfo>)intent.getSerializableExtra("FARM_STORE_OBJECTS"));;
         }
-        Location locations = locationManager.getLastKnownLocation(provider);
-        List<String> providerList = locationManager.getAllProviders();
-        if (null != locations && null != providerList && providerList.size() > 0) {
-            double longitude = locations.getLongitude();
-            double latitude = locations.getLatitude();
-            Geocoder geocoder = new Geocoder(getApplicationContext(),
-                    Locale.getDefault());
-            try {
-                List<Address> listAddresses = geocoder.getFromLocation(latitude,
-                        longitude, 1);
-                if (null != listAddresses && listAddresses.size() > 0) {
-                    String state = listAddresses.get(0).getAdminArea();
-                    String country = listAddresses.get(0).getCountryName();
-                    String subLocality = listAddresses.get(0).getSubLocality();
-                    markerOptions.title(intent.getStringExtra("FSNAME"));
-                    //markerOptions.title("" + latLng + "," + subLocality + "," + state + "," + country);
+        else farmStoreInfoList = null;
+
+        List<LatLng> latLngList = new ArrayList<>();
+        int i=0;
+        for(FarmStoreInfo fsi : farmStoreInfoList){
+            latLngList.add(new LatLng(fsi.getLatitude(), fsi.getLongitude()));
+            MarkerOptions markerOptions = new MarkerOptions();
+            markerOptions.position(latLngList.get(i));
+
+            LocationManager locationManager = (LocationManager)
+                    getSystemService(Context.LOCATION_SERVICE);
+            String provider = locationManager.getBestProvider(new Criteria(), true);
+            if (ActivityCompat.checkSelfPermission(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
+                            != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            Location locations = locationManager.getLastKnownLocation(provider);
+            List<String> providerList = locationManager.getAllProviders();
+            if (null != locations && null != providerList && providerList.size() > 0) {
+                double longitude = locations.getLongitude();
+                double latitude = locations.getLatitude();
+                Geocoder geocoder = new Geocoder(getApplicationContext(),
+                        Locale.getDefault());
+                try {
+                    List<Address> listAddresses = geocoder.getFromLocation(latitude,
+                            longitude, 1);
+                    if (null != listAddresses && listAddresses.size() > 0) {
+                        String state = listAddresses.get(0).getAdminArea();
+                        String country = listAddresses.get(0).getCountryName();
+                        String subLocality = listAddresses.get(0).getSubLocality();
+                        markerOptions.title(fsi.getName());
+                        //markerOptions.title("" + latLng + "," + subLocality + "," + state + "," + country);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
+                markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
+                mCurrLocationMarker = mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLng(latLngList.get(i)));
+                mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+                if (mGoogleApiClient != null) {
+                    LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,
+                            this);
+                }
+                i++;
             }
         }
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_BLUE));
-        mCurrLocationMarker = mMap.addMarker(markerOptions);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
-        if (mGoogleApiClient != null) {
-            LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,
-                    this);
-        }
+
     }
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
