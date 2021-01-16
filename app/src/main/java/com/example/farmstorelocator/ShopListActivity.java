@@ -1,11 +1,10 @@
 package com.example.farmstorelocator;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -55,6 +54,16 @@ public class ShopListActivity extends AppCompatActivity  {
                 viewModel.queryFarmStoreList(DISTANCE_DUMMY);
             }
         );
+
+        final Button showlistonmap = (Button) findViewById(R.id.showOnMapShopList);
+
+        showlistonmap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), MapsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }
