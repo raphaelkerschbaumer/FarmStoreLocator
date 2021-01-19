@@ -17,12 +17,13 @@ import java.util.List;
 
 public class AccountBuyerActivity extends AppCompatActivity {
     private Toolbar buyerToolbar;
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.account_buyer);
-
+        db = new Database(this);
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
@@ -37,6 +38,10 @@ public class AccountBuyerActivity extends AppCompatActivity {
                 "Seifried       8,60 €"
         };
 
+
+
+
+
         //create a list from the string elements
         final List<String> itemsList = new ArrayList<String>(Arrays.asList(items));
 
@@ -45,16 +50,6 @@ public class AccountBuyerActivity extends AppCompatActivity {
 
         // DataBind ListView with items from ArrayAdapter
         myList.setAdapter(arrayAdapter);
-
-        //  btn.setOnClickListener(new View.OnClickListener() {
-        //      @Override
-        //      public void onClick(View v) {
-        //          // Add new Items to List
-        //          itemsList.add("Entry 11");
-        //          itemsList.add("Entry 12");
-        //          arrayAdapter.notifyDataSetChanged();
-        //      }
-        //  });
 
         final Button load_credit = (Button) findViewById(R.id.options_load_credit);
 
@@ -92,4 +87,6 @@ public class AccountBuyerActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
+
+
 }

@@ -1,8 +1,12 @@
 package com.example.farmstorelocator;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,16 +20,21 @@ import java.util.List;
 
 public class LoadCreditActivity extends AppCompatActivity {
     private Toolbar buyerToolbar;
+   // public static final String LOG_TAG = LoadCreditActivity.class.getSimpleName();
+    Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.load_credit);
 
+       // db = new Database(this);
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
-
+       /* CreditMemo testMemo = new CreditMemo((double) 20, 1);
+        Log.d(LOG_TAG, "InhaltTestmemo: " + testMemo.toString());
+        dataScource = new CreditMemoDataSource(this);*/
         //set list View
         final ListView myList = (ListView) findViewById(R.id.listView_credit);
         //final Button btn = (Button) findViewById(R.id.item1);
@@ -44,19 +53,22 @@ public class LoadCreditActivity extends AppCompatActivity {
 
         // DataBind ListView with items from ArrayAdapter
         myList.setAdapter(arrayAdapter);
+        EditText updateamount = findViewById(R.id.editTextNumberDecimal2);
+        String amount = updateamount.getText().toString();
+       final Button btn_update = findViewById(R.id.button2);
 
-        //  btn.setOnClickListener(new View.OnClickListener() {
-        //      @Override
-        //      public void onClick(View v) {
-        //          // Add new Items to List
-        //          itemsList.add("Entry 11");
-        //          itemsList.add("Entry 12");
-        //          arrayAdapter.notifyDataSetChanged();
-        //      }
-        //  });
+       btn_update.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+              // db.db.execSQL("insert into credit (amount) values (' " + amount + "')");
+               Intent intent = new Intent(getApplicationContext(), AccountBuyerActivity.class);
+               startActivity(intent);
+           }
+       });
 
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);

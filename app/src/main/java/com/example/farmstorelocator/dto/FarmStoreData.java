@@ -16,6 +16,17 @@ public class FarmStoreData {
     private double latitude;
     private double longitude;
 
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    private Double amount;
+
+
     public String getName() {
         return name;
     }
