@@ -89,6 +89,15 @@ public class ShopListActivity extends AppCompatActivity  {
                 }
             }
         });
+
+        Button filter_shoplist = (Button) findViewById(R.id.button5);
+        filter_shoplist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), FilterShopActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public boolean onOptionsItemSelected (MenuItem item){

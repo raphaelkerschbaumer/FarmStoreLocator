@@ -23,7 +23,7 @@ public class FilterMapActivity extends AppCompatActivity {
         buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(buyerToolbar);
 
-        final Button showresult = (Button) findViewById(R.id.button_showresult);
+         Button showresult = (Button) findViewById(R.id.button_showresult);
 
         showresult.setOnClickListener(new View.OnClickListener() {
             @Override
