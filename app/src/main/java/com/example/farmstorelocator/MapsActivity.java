@@ -58,6 +58,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        final Toolbar buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(buyerToolbar);
+
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -68,9 +71,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         mapFragment.getMapAsync(this);
 
-       final Toolbar buyerToolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(buyerToolbar);
-       buyerToolbar.setVisibility(View.VISIBLE);
+
 
         final Button button_filter_map = (Button) findViewById(R.id.buttonMapsfilter);
 
