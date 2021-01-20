@@ -12,6 +12,7 @@ import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -22,7 +23,6 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.farmstorelocator.models.FarmStoreInfo;
-import com.example.farmstorelocator.models.Products;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -256,5 +256,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         return true;
     }
 
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item1:
+                Intent intent = new Intent(getBaseContext(), BuyerSettingsActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.item2:
+                intent = new Intent(getBaseContext(), AccountBuyerActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.item3:
+                Toast.makeText(getApplicationContext(), "You are not logged in", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
 
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -90,4 +91,24 @@ public class ShopListActivity extends AppCompatActivity  {
         });
     }
 
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item1:
+                Intent intent = new Intent(getBaseContext(), BuyerSettingsActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.item2:
+                intent = new Intent(getBaseContext(), AccountBuyerActivity.class);
+                startActivity(intent);
+                finish();
+                break;
+
+            case R.id.item3:
+                Toast.makeText(getApplicationContext(), "You are not logged in", Toast.LENGTH_SHORT).show();
+                break;
+        }
+        return true;
+    }
 }
